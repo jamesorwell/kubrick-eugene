@@ -46,3 +46,62 @@ class Connect4():
 
 game = Connect4('teamEugene', 'James')
 game.play()
+
+
+
+def pascal(n):
+    board = np.zeros(49).reshape(7, 7)
+    board[1,5] = 1
+    print (board)
+    for row in range(7):
+        for i in range(7):
+            if board[row+1,i+1] == board[row,i+1]:
+                print (row, i)
+    return x
+
+lst = []
+for row in range(7):
+    for i in range(4):
+        if (board[row,i]) == 1 and (board[row,i] == board[row,i+1]):
+            if (board[row,i]) == 1 and (board[row,i] == board[row,i+2]):
+                if (board[row,i]) == 1 and (board[row,i] == board[row,i+3]):
+                    lst.append([row,i])
+
+for row in range(4):
+    for i in range(7):
+        if (board[row,i]) == 1 and (board[row,i] == board[row+1,i]):
+            if (board[row,i]) == 1 and (board[row,i] == board[row+2,i]):
+                if (board[row,i]) == 1 and (board[row,i] == board[row+3,i]):
+                    lst.append([row,i])
+
+for row in range(4):
+    for i in range(4):
+        if (board[row,i]) == 1 and (board[row,i] == board[row+1,i+1]):
+            if (board[row,i]) == 1 and (board[row,i] == board[row+2,i+2]):
+                if (board[row,i]) == 1 and (board[row,i] == board[row+3,i+3]):
+                    lst.append([row,i])
+
+for row in range(4):
+    for i in range(3,7):
+        if (board[row,i]) == 1 and (board[row,i] == board[row+1,i-1]):
+            if (board[row,i]) == 1 and (board[row,i] == board[row+2,i-2]):
+                if (board[row,i]) == 1 and (board[row,i] == board[row+3,i-3]):
+                    lst.append([row,i])
+
+print (lst)
+
+
+
+x[row,i] + x[row,i+1]
+
+def pascal1(n):
+    board = np.zeros(49).reshape(6, 7)
+    x[:,0] = 1
+    for i in range(1,7):
+        x[i,1:] = x[i-1,0:n-1] + x[i-1,1:]
+    list = x.tolist()
+    a = []
+    for i in list:
+        x = ([a for a in i if a != 0.0])
+        a.append(x)
+    return a
