@@ -1,7 +1,7 @@
 import numpy as np
 
 class Connect4():
-    def __init__(self, player1, player2, width = 7, height = 7):
+    def __init__(self, player1, player2, width = 7, height = 6):
         self.player1 = player1
         self.player2 = player2
         self.board = np.zeros(width*height).reshape(height,width )
@@ -50,29 +50,29 @@ class Connect4():
 
     def wincheck1(self):
         lst = []
-        for row in range(7):
-            for i in range(4):
+        for row in range(self.height+1):
+            for i in range(self.width-2):
                 if (self.board[row,i]) == 1 and (self.board[row,i] == self.board[row,i+1]):
                     if (self.board[row,i]) == 1 and (self.board[row,i] == self.board[row,i+2]):
                         if (self.board[row,i]) == 1 and (self.board[row,i] == self.board[row,i+3]):
                             lst.append([row,i])
 
-        for row in range(4):
-            for i in range(7):
+        for row in range(self.height-2):
+            for i in range(self.width+1):
                 if (self.board[row,i]) == 1 and (self.board[row,i] == self.board[row+1,i]):
                     if (self.board[row,i]) == 1 and (self.board[row,i] == self.board[row+2,i]):
                         if (self.board[row,i]) == 1 and (self.board[row,i] == self.board[row+3,i]):
                             lst.append([row,i])
 
-        for row in range(4):
-            for i in range(4):
+        for row in range(self.height-2):
+            for i in range(self.width-2):
                 if (self.board[row,i]) == 1 and (self.board[row,i] == self.board[row+1,i+1]):
                     if (self.board[row,i]) == 1 and (self.board[row,i] == self.board[row+2,i+2]):
                         if (self.board[row,i]) == 1 and (self.board[row,i] == self.board[row+3,i+3]):
                             lst.append([row,i])
 
-        for row in range(4):
-            for i in range(3,7):
+        for row in range(self.height-2):
+            for i in range(self.width-2,self.width+1):
                 if (self.board[row,i]) == 1 and (self.board[row,i] == self.board[row+1,i-1]):
                     if (self.board[row,i]) == 1 and (self.board[row,i] == self.board[row+2,i-2]):
                         if (self.board[row,i]) == 1 and (self.board[row,i] == self.board[row+3,i-3]):
@@ -83,29 +83,29 @@ class Connect4():
 
     def wincheck2(self):
         lst = []
-        for row in range(7):
-            for i in range(4):
+        for row in range(self.height+1):
+            for i in range(self.width-2):
                 if (self.board[row,i]) == 2 and (self.board[row,i] == self.board[row,i+1]):
                     if (self.board[row,i]) == 2 and (self.board[row,i] == self.board[row,i+2]):
                         if (self.board[row,i]) == 2 and (self.board[row,i] == self.board[row,i+3]):
                             lst.append([row,i])
 
-        for row in range(4):
-            for i in range(7):
+        for row in range(self.height-2):
+            for i in range(self.width+1):
                 if (self.board[row,i]) == 2 and (self.board[row,i] == self.board[row+1,i]):
                     if (self.board[row,i]) == 2 and (self.board[row,i] == self.board[row+2,i]):
                         if (self.board[row,i]) == 2 and (self.board[row,i] == self.board[row+3,i]):
                             lst.append([row,i])
 
-        for row in range(4):
-            for i in range(4):
+        for row in range(self.height-2):
+            for i in range(self.width-2):
                 if (self.board[row,i]) == 2 and (self.board[row,i] == self.board[row+1,i+1]):
                     if (self.board[row,i]) == 2 and (self.board[row,i] == self.board[row+2,i+2]):
                         if (self.board[row,i]) == 2 and (self.board[row,i] == self.board[row+3,i+3]):
                             lst.append([row,i])
 
-        for row in range(4):
-            for i in range(3,7):
+        for row in range(self.height-2):
+            for i in range(self.width-2,self.width+1):
                 if (self.board[row,i]) == 2 and (self.board[row,i] == self.board[row+1,i-1]):
                     if (self.board[row,i]) == 2 and (self.board[row,i] == self.board[row+2,i-2]):
                         if (self.board[row,i]) == 2 and (self.board[row,i] == self.board[row+3,i-3]):
