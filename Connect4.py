@@ -1,7 +1,7 @@
 import numpy as np
 
 class Connect4():
-    def __init__(self, player1, player2, width = 7, height = 6):
+    def __init__(self, player1, player2, width = 5, height = 6):
         self.player1 = player1
         self.player2 = player2
         self.board = np.zeros(width*height).reshape(height,width )
@@ -16,8 +16,9 @@ class Connect4():
 
 
     def player1turn(self):
-        x = input("Player one, choose your position(a-h)")
-        dict = {'a' : 0, 'b' : 1, 'c' : 2, 'd' : 3, 'e' : 4, 'f' : 5, 'g' : 6, 'h' : 7}
+        dict = {'a' : 0, 'b' : 1, 'c' : 2, 'd' : 3, 'e' : 4, 'f' : 5, 'g' : 6, 'h' : 7, 'i' : 8, 'j' : 9, 'k' : 10}
+        choices = (list(dict.keys())[:self.width+1])
+        x = input(f"Player one, choose your position {choices}")
         self.board[self.height - self.counter[dict[x]]][dict[x]] = 1
         self.counter[dict[x]] += 1
         #print (self.counter)
@@ -26,8 +27,9 @@ class Connect4():
 
 
     def player2turn(self):
-        x = input("Player two, choose your position(a-g)")
-        dict = {'a' : 0, 'b' : 1, 'c' : 2, 'd' : 3, 'e' : 4, 'f' : 5, 'g' : 6}
+        dict = {'a' : 0, 'b' : 1, 'c' : 2, 'd' : 3, 'e' : 4, 'f' : 5, 'g' : 6, 'h' : 7, 'i' : 8, 'j' : 9, 'k' : 10}
+        choices = (list(dict.keys())[:self.width+1])
+        x = input(f"Player two, choose your position({choices}")
         self.board[self.height - self.counter[dict[x]]][dict[x]] = 2
         self.counter[dict[x]] += 1
         print (self.board)
